@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+This is my personal website source code. Built with Next.JS.
+
+Feel free to fork and made it your own.

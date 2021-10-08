@@ -1,68 +1,48 @@
-import Head from 'next/head'
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Yongky Ali</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <Image
+          height={144}
+          width={144}
+          src="/images/profile.jpeg"
+          alt="My Profile Picture"
+          className="profile-picture"
+        />
+        <h1 className="title">Yongky Ali</h1>
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          Hello I’m <strong>Yongky</strong>, currently CEO at Beebbo Comics. I
+          started my career as a software engineer and now pursuing
+          entreprenurial world.
+        </p>
+        <p className="description">
+          Feel free to connect with me via{" "}
+          <a href="https://www.instagram.com/yongkyali">Instagram</a> or via{" "}
+          <a href="mailto:yongky@beebbo.com">e-mail</a>.
         </p>
 
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div>
+          <Link href="works/beebbo-comics">Beebbo Comics</Link>
+          <Link href="works/influencer-cart">Influencer Cart</Link>
+          <Link href="works/executive-mafia">Executive Mafia</Link>
         </div>
       </main>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
-        </a>
-      </footer>
-
       <style jsx>{`
         .container {
-          min-height: 100vh;
+          max-width: 35rem;
           padding: 0 0.5rem;
+          margin: auto;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -78,17 +58,10 @@ export default function Home() {
           align-items: center;
         }
 
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
+        .profile-picture {
+          border-radius: 100%;
+          width: 144px;
+          height: 144px;
         }
 
         footer a {
@@ -98,7 +71,7 @@ export default function Home() {
         }
 
         a {
-          color: inherit;
+          // color: inherit;
           text-decoration: none;
         }
 
@@ -116,11 +89,10 @@ export default function Home() {
         .title {
           margin: 0;
           line-height: 1.15;
-          font-size: 4rem;
+          font-size: 3rem;
         }
 
-        .title,
-        .description {
+        .title {
           text-align: center;
         }
 
@@ -205,5 +177,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
