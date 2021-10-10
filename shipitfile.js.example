@@ -1,0 +1,66 @@
+const {
+  productionRemoteServerAddress,
+  productionRemoteServerUsername,
+  gitUsername,
+  gitPassword,
+} = {
+  productionRemoteServerAddress: "",
+  productionRemoteServerUsername: "root",
+  gitUsername: "",
+  gitPassword: "",
+};
+
+let asUser = "root";
+let repoUrl = `https://${gitUsername}:${gitPassword}@github.com/yongkyali/personal-site-next.git`;
+
+module.exports = (shipit) => {
+  require("shipit-deploy")(shipit);
+  require("shipit-shared")(shipit);
+
+  shipit.initConfig({
+    default: {
+      repositoryUrl: repoUrl,
+      asUser: asUser,
+      verboseSSHLevel: 0,
+      keepReleases: 3,
+      shared: {
+        overwrite: true,
+        // dirs: ["node_modules"],
+        files: [],
+      },
+    },
+    production: {
+      deployTo: "/var/www/personal-site-next",
+      servers: `${[
+        productionRemoteServerUsername,
+      ]}@${productionRemoteServerAddress}`,
+      branch: "main",
+    }
+  });
+
+  shipit.on("deploy", () => {
+    shipit.local(`echo 'Deploying ${shipit.environment}'`);
+  });
+
+  shipit.on("updated", () => {
+    shipit.start("npm-install");
+  });
+
+  shipit.on("npm-installed", async () => {
+    shipit.start("npm-build");
+  });
+
+  shipit.blTask("npm-install", async () => {
+    await shipit.remote(`cd ${shipit.releasePath} && npm install`);
+    await shipit.emit("npm-installed");
+  });
+
+  shipit.blTask("npm-build", async () => {
+    await shipit.remote(`cd ${shipit.releasePath} && npm run build`);
+    await shipit.emit("npm-built");
+  });
+
+  shipit.on("deployed", async () => {
+    shipit.remote("pm2 reload personal-next");
+  });
+};
