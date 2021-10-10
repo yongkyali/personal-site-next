@@ -1,0 +1,103 @@
+/* @import "~@coreui/icons/css/free.min.css"; */
+
+.heading2Xl {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingXl {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingLg {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+.headingMd {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.borderCircle {
+  border-radius: 9999px;
+}
+
+.colorInherit {
+  color: inherit;
+}
+
+.padding1px {
+  padding-top: 1px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 0 1.25rem;
+}
+
+.lightText {
+  color: #666;
+}
+
+.dFlex {
+  display: flex;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}
+
+.portfolioList {
+  padding-left: 1em;
+  margin: 0;
+}
+
+.portfolioList > li > div {
+  display: flex;
+}
+
+.badge {
+  padding: 1px 9px 2px;
+  font-size: 0.5em;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #ffffff;
+  background-color: #0070f3;
+  border-radius: 0.7em;
+  text-transform: uppercase;
+  margin-left: 0.7em;
+  align-self: center;
+}
+
+.workTitle {
+  margin: 0;
+}
+
+.workTagline {
+  margin: 0;
+}
+
+.workImageContainer {
+  width: 100%;
+  max-width: 400px;
+  height: 150px;
+  position: relative;
+}
