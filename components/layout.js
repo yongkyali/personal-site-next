@@ -9,11 +9,10 @@ export const siteTitle = "Home - Yongky Ali";
 
 function Layout(props) {
   const home = props.home;
-  console.log(props);
+
   return (
     <div className={styles.container}>
       <Head>
-        {/* <link rel="icon" href="/favicon.ico" /> */}
         <meta
           name="description"
           content="Yongky Ali's personal site. An entrepreneur and occasionally a software engineer."
